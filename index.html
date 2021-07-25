@@ -11,21 +11,30 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <div class="container">
-      <form  onsubmit="getUserRepos(event)" autocomplete="off">
+      <form onsubmit="getUserRepos(event)" autocomplete="off" class="usernameform">
         <input
           class="form-control"
           type="search"
           placeholder="Enter a Github Username"
           id="githubusername"
           spellcheck="false"
+          class="usernameinput"
         />
       </form>
-      <div id="reposlist">
-
+      <div class="userdetails" id="userdetails">
       </div>
+      <div id="reposlist"></div>
     </div>
     <script src="./script.js"></script>
   </body>
