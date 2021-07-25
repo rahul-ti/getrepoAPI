@@ -60,8 +60,8 @@ async function fetchRepos(username) {
       repos.forEach(repo => {
         let repoitem = document.getElementById('repoitem')
         repoitem.innerHTML += ` <li class="list-group-item repocarditem"><div class="repocard">
-        <a class="repotitle" href="${repo.html_url}">${repo.name}</a>
-        <span class="buttons"><a href="${repo.html_url}" class="btn text-reset" title="View repository on Github page."><i class="fab fa-github-square"></i></a><button class="btn" title="Fork Count"><i class="fas fa-code-branch"></i>${repo.forks}</button><button class="btn" title="Star Count"><i class="far fa-star"></i>${repo.stargazers_count}</button></span>
+        <a class="repotitle" href="${repo.html_url}" target="_blank">${repo.name}</a>
+        <span class="buttons"><a href="${repo.html_url}" class="btn text-reset" title="View repository on Github page." target="_blank"><i class="fab fa-github-square"></i></a><button class="btn" title="Fork Count"><i class="fas fa-code-branch"></i>${repo.forks}</button><button class="btn" title="Star Count"><i class="far fa-star"></i>${repo.stargazers_count}</button></span>
       </div></li>`
       });
     }
