@@ -1,6 +1,20 @@
+let container = document.getElementsByClassName('container')[0]
+container.innerHTML = `
+<form onsubmit="getUserRepos(event)" autocomplete="off" class="usernameform">
+  <input
+    class="form-control"
+    type="search"
+    placeholder="Enter a Github Username"
+    id="githubusername"
+    spellcheck="false"
+    class="usernameinput"
+  />
+</form>
+<div class="userdetails" id="userdetails">
+</div>
+<div id="reposlist"><ul class="list-group list-group-flush" id="repoitem"></ul></div>`
 
-let repolist = document.getElementById('reposlist')
-repolist.innerHTML = `<ul class="list-group list-group-flush" id="repoitem"></ul>`
+
 
 try {
   document.getElementById('githubusername').value = sessionStorage.getItem("username");
@@ -31,7 +45,7 @@ async function getUserData(username) {
     let user = await resp.json()
       let userdetails = document.getElementById('userdetails')
       userdetails.innerHTML = `
-      <img src="${user.avatar_url}" alt="" class="useravatar"> ${user.login}'s repositories:`
+      <img src="${user.avatar_url}" alt="useravatar" class="useravatar"> ${user.login}'s repositories:`
   } catch (error) {
     userdetails.innerText = `Please check username`
   }
@@ -47,7 +61,7 @@ async function fetchRepos(username) {
         let repoitem = document.getElementById('repoitem')
         repoitem.innerHTML += ` <li class="list-group-item repocarditem"><div class="repocard">
         <a class="repotitle" href="${repo.html_url}">${repo.name}</a>
-        <span class="buttons"><a href="${repo.html_url}" class="btn text-reset" title="View repository on Github page."><i class="fab fa-github-square"></i></a><button class="btn "><i class="fas fa-code-branch"></i>${repo.forks}</button><button class="btn" title="star count"><i class="far fa-star"></i>${repo.stargazers_count}</button></span>
+        <span class="buttons"><a href="${repo.html_url}" class="btn text-reset" title="View repository on Github page."><i class="fab fa-github-square"></i></a><button class="btn" title="Fork Count"><i class="fas fa-code-branch"></i>${repo.forks}</button><button class="btn" title="Star Count"><i class="far fa-star"></i>${repo.stargazers_count}</button></span>
       </div></li>`
       });
     }
